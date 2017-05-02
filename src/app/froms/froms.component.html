@@ -36,5 +36,12 @@
       </div>
       <input [disabled]="!myform.form.valid" type="submit" class="btn btn-primary" />
   </form>
+<div [hidden]="!myform.form.valid">
+    <p>Form data </p>
+    <div>
+      {{myform.value|json}}
+    </div>
+    
+</div>
 </div>
 

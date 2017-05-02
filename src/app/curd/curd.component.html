@@ -1,0 +1,89 @@
+
+<div class="container">  
+          <br />
+        <button type="button" class="btn btn-primary"(click)="togole(hide)" >Add New Employee</button><br /><br />
+<div [hidden]="hide">
+
+   <h4> Add Employee Info</h4>
+            <form #myform="ngForm" (ngSubmit)="onsubmit(myform.value)" novalidate> 
+                      
+              <div class="form-group">  
+                  <label for="EmployeeId">ID</label>  
+                  <input type="text" class="form-control" id="id"  [(ngModel)]="Modle.id" name="id"/>  
+              </div>  
+              <div class="form-group">  
+                  <label for="Name">Name</label>  
+                  <input type="text" class="form-control" id="Name"  [(ngModel)]="Modle.Name" name="Name"/>  
+              </div>  
+              <div class="form-group">  
+                  <label for="Age">Age</label>  
+                  <input type="text" class="form-control" id="Age" [(ngModel)]="Modle.Age" name="Age" />  
+              </div>  
+              <div class="form-group">  
+                  <label for="State">State</label>  
+                  <input type="text" class="form-control" id="State"  [(ngModel)]="Modle.State" name="State"/>  
+              </div>  
+              <div class="form-group">  
+                  <label for="Country">Country</label>  
+                  <input type="text" class="form-control" id="Country"  [(ngModel)]="Modle.Country" name="Country"/>  
+              </div>  
+        
+          <button type="submit" class="btn btn-primary" id="btnAdd">Save</button>  
+          <button type="button" class="btn btn-default">Cancel</button>  
+                      
+        </form> 
+        <br/>
+    <br/> 
+    </div>
+    
+        <table class="table table-bordered table-hover">  
+            <thead>  
+                <tr>  
+                    <th>  
+                        ID  
+                    </th>  
+                    <th>  
+                        Name  
+                    </th>  
+                    <th>  
+                        Age  
+                    </th>  
+                    <th>  
+                        State  
+                    </th>  
+                    <th>  
+                        Country  
+                    </th>  
+                    <th>  
+                        Action  
+                    </th>  
+                </tr>  
+            </thead>  
+            <tbody class="tbody">  
+        <tr *ngFor="let Employee of Employees">
+                      <td>{{ Employee.id }}</td>
+                      <td>{{ Employee.Name }}</td>
+                      <td>{{ Employee.Age }}</td>
+                      <td>{{ Employee.State }}</td>
+                       <td>{{ Employee.Country }}</td>
+                      <td>
+                          <a href="javascript:void(0)"
+
+                            (click)="deleteEmployee($event, Employee)"
+
+                            class="btn btn-danger pull-right">Delete</a>
+                          <a href="javascript:void(0)"
+
+                            (click)="editEmployee($event, Employee)"
+
+                            class="btn btn-primary pull-right">Edit</a>
+                      </td>
+                  </tr>
+            </tbody>  
+        </table>  
+    </div>  
+     
+                
+  
+  
+            
